@@ -53,6 +53,11 @@ function toHTML (tree, options = htmlDefaults) {
         continue
       }
 
+      if(attr === 'viewBox'){
+        tag += ' ' + serializeAttr(attr, val.join(' '))
+        continue
+      }
+
       if (attr === 'style') {
         tag += ' ' + serializeAttr(attr, inlineStyle(val))
         continue
